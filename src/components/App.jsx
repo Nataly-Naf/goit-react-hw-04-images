@@ -38,7 +38,7 @@ export const App = () => {
     }
     getPicture();
     console.log(pictures);
-  }, [query, page, pictures]);
+  }, [query, page]);
 
   const loadMoreHandler = () => {
     setPage(prevState => prevState + 1);

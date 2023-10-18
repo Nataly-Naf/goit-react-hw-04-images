@@ -29,7 +29,7 @@ export const App = () => {
         const newPictures = await GetFilteredImage(query, page);
         console.log(newPictures);
         toast.success('We have found pictures');
-        setPictures(prevState => [...prevState, newPictures]);
+        setPictures(prevState => [...prevState, ...newPictures]);
       } catch (error) {
         setError(true);
       } finally {

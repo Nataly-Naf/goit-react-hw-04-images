@@ -29,7 +29,7 @@ export const App = () => {
         const newPictures = await GetFilteredImage(query, page);
         console.log(newPictures);
         toast.success('We have found pictures');
-        setPictures(prevState => [...prevState, ...newPictures]);
+        setPictures(prevState => [...prevState, newPictures]);
       } catch (error) {
         setError(true);
       } finally {
@@ -37,7 +37,6 @@ export const App = () => {
       }
     }
     getPicture();
-    console.log(pictures);
   }, [query, page]);
 
   const loadMoreHandler = () => {
@@ -56,41 +55,3 @@ export const App = () => {
     </AppS>
   );
 };
-
-// loadMoreHandler = () => {
-//   this.setState(prevState => {
-//     return { page: prevState.page + 1 };
-//   });
-// };
-
-//   async componentDidUpdate(prevProps, prevState) {
-//     if (
-//       prevState.query !== this.state.query ||
-//       prevState.page !== this.state.page
-//     ) {
-//       try {
-//         this.setState({ loading: true, error: false });
-
-//         const newPictures = await GetFilteredImage(
-//           this.state.query,
-//           this.state.page
-//         );
-//         console.log(newPictures);
-//         toast.success('We have found pictures');
-//         this.setState(prevState => {
-//           return {
-//             pictures: [...prevState.pictures, ...newPictures],
-//           };
-//         });
-//       } catch (error) {
-//         this.setState({ error: true });
-//       } finally {
-//         this.setState({ loading: false });
-//       }
-//     }
-//   }
-//   render() {
-//     const { loading, error } = this.state;
-
-//   }
-// }
